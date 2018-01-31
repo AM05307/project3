@@ -146,8 +146,8 @@
                    
                       
                               <label for="password">비밀번호확인</label>
-                              <input type="password" class="form-control" id="password2" name="password2" placeholder="동일한 비밀번호를 입력하시오">
-                   			<!-- 	<h4 style="color:red;" id="passwordCheckMessage"></h4> -->
+                              <input type="password" class="form-control" id="password2" name="password2" onkeyup="passwordCheckFunction();" placeholder="동일한 비밀번호를 입력하시오">
+                   			<h2 style="color:red;" id="passwordCheckMessage"></h2>
                  
                               <label for="name">이름(실명)</label>
                               <input type="text" class="form-control" id="userName" name="userName" maxLength="20" placeholder="최대10자">
@@ -315,16 +315,16 @@
 
   <script src="assets/js/main.js"></script>
   
-<!--   <script type="text/javascript">
+  <script type="text/javascript">
   function passwordCheckFunction(){
 	  var password1 = $('#password1').val();
 	  var password2 = $('#password2').val();
 	  if(password1 != password2) {
 		  $('#passwordCheckMessage').html('비밀번호가 일치하지않습니다.');
 	  }else{
-		  $('#passwordCheckMessage').html('');
+		  $('#passwordCheckMessage').html('비밀번호가 일치합니다.');
 	  }
-  } -->
+  }
   
   </script>
 
