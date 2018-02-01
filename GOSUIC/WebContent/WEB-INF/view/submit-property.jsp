@@ -329,7 +329,7 @@
 				success:function(data){
 					if($.trim(data)==0){
 						alert("사용가능한 아이디입니다.");
-						//$('#checkMsg').html('사용가능한 아이디입니다.');
+						//$('#checkMsg').html('사용가능한 아이디입니다..');
 					}else{
 						alert("중복된 아이디입니다.");
 						//$('#checkMsg').html('중복된 아이디입니다.');
