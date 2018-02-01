@@ -41,7 +41,7 @@ public class UserController {
         ModelAndView mav = new ModelAndView();
         if(userService.login(userEmail, password1)){
             session.setAttribute("userEmail", userEmail);
-            mav.setViewName("redirect:/afterlogin.sp");
+            mav.setViewName("redirect:/mainform.sp");
         }
         else{
             mav.setViewName("redirect:/loginform.sp");

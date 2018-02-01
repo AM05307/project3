@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -80,10 +81,19 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                      <!-- 로그인, 회원가입 버튼  -->
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('/GOSUIC/loginform.sp')" data-wow-delay="0.45s">로그인</button>
+                    
+                     <!-- 로그인, 회원가입 버튼  -->
+                      
+          <c:if test="${userEmail eq null}">
+          <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('/GOSUIC/loginform.sp')" data-wow-delay="0.45s">로그인</button>
           <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('/GOSUIC/insert.sp')" data-wow-delay="0.48s">회원가입</button>
-                    </div>
+          </c:if>
+                      
+           <c:if test="${userEmail  ne null}">
+           <label for="email"><%=session.getAttribute("userEmail")%>	</label>
+           </c:if>
+           </div>
+           
                     <ul class="main-nav nav navbar-nav navbar-right">
                       <li>
             <a href="index.html">Home <b class="caret"></b></a>
