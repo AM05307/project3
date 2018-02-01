@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/*슬라이드 화면의 '매물을 검색할 지역을 선택하세요'부분 */
+.search {
+	font-size: 40px;
+	font-weight:bold;
+	color:#fdc601;
+	text-align:center;
+	background-color: #ffffff;
+	background-color: rgba( 255, 255, 255, 0.5 );
+	}
+	
+}
