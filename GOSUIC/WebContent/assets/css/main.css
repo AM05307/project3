@@ -10,4 +10,16 @@
 	background-color: rgba( 255, 255, 255, 0.5 );
 	}
 	
+/* 지역선택하기 버튼  / btn은 변경하면안됨 css가 btn.*으로 설정되어있음 */
+.search1-btn {
+    background-color: #FDC600;
+    color: #333;
+    font-size: 16px;
+    border: 1px solid #EAE9E9;
+    width: 200px;
+    height: 40px;
+    color: #FFF;
+    transition: all 0.3s ease 0s; 
+    padding: 0px;
+
 }
