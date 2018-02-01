@@ -315,7 +315,9 @@
 
   <script src="assets/js/main.js"></script>
   
-  <script type="text/javascript">
+  
+<!--  아이디 중복 , 비밀번호 일치여부 확인 -->
+   <script type="text/javascript">
   
   $(document).ready(function(){
 	  $('#idcheck').on('click',function(){
@@ -335,7 +337,6 @@
 						//$('#checkMsg').html('중복된 아이디입니다.');
 					}
 					}
-			  
 		  });
 	  });
   });

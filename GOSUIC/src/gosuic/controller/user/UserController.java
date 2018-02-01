@@ -33,6 +33,7 @@ public class UserController {
 		return "/WEB-INF/view/submit-property.jsp";
 	}
 	
+	// 로그인
 	@RequestMapping(value = "/UserLogin.sp", method = RequestMethod.POST)
     public ModelAndView login(HttpSession session,String userEmail, String password1){
 		System.out.println(userEmail + " 컨트롤러의 록인 컨트롤러 들옴");

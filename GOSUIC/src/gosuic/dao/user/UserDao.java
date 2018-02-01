@@ -29,33 +29,15 @@ public class UserDao {
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
-	public List<AptInfo> listUser(){
-		List<AptInfo> list = getJdbcTemplate().query("SELECT * FROM aptinfo", new RowMapper<AptInfo>() {
-			@Override
-			public AptInfo mapRow(ResultSet rs, int num) throws SQLException {
-					AptInfo ob = new AptInfo();
-					ob.setAptno(rs.getInt("aptno"));
-					ob.setSigungu(rs.getString("sigungu"));
-					ob.setBunji(rs.getString("bunji"));
-					ob.setDanji(rs.getString("danji"));
-					ob.setC_type(rs.getInt("c_type"));
-					ob.setMyunjuk(rs.getString("myunjuk"));
-					ob.setBojeung(rs.getString("bojeung"));
-					ob.setWolse(rs.getString("wolse"));
-					ob.setGunchook(rs.getString("gunchook"));
-					
-					return ob;
-			}
-		});
-		return list;
-	}
-	
+		
+	//회원가입
 	public boolean insertUser(UserVo user) {
 		int n = getJdbcTemplate().update("insert into userinfo values(?,?,?,?,?,?)" ,
 				new Object[] {user.getUserEmail(),user.getUserID(),user.getPassword1(),user.getUserName(),user.getUserBirthday(),user.getUserGender()});
 		return (n>0) ? true : false;
 	}
 	
+	//로그인
 	public boolean login(String userEmail, String password1) {
 		System.out.println("록인dao들어옴");
 		System.out.println("다오의 " + userEmail);
@@ -69,9 +51,8 @@ public class UserDao {
 			return false;
 
 	}
-	
+	// 아이디중복 체크
 	public int checkId(String userEmail) {
-		
 		try {
 		System.out.println("아이디 중복체크 다오 : " + userEmail );
 		String check = getJdbcTemplate().queryForObject("select userID from userinfo where useremail=?", new Object[] {userEmail},String.class);

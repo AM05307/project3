@@ -1,16 +1,11 @@
 package gosuic.controller.menu;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import gosuic.biz.user.UserService;
 
 @Controller
 public class MenuController {
-	@Autowired
-	private UserService userService;
 
 	// 입력페이지로
 	@RequestMapping("/insert.sp")
