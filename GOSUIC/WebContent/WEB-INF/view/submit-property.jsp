@@ -135,7 +135,7 @@
                            
                               <label for="email">Email</label>
                               <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="example@example.com" >
-                            	<input type="button" id="idcheck" value="아이디 중복검사>
+                            	<input type="button" id="idcheck" value="아이디 중복검사">
                             
                             
                               <label for="id">아이디</label>
@@ -147,7 +147,7 @@
                       
                               <label for="password">비밀번호확인</label>
                               <input type="password" class="form-control" id="password2" name="password2" onkeyup="passwordCheckFunction();" placeholder="동일한 비밀번호를 입력하시오">
-                   			<h2 style="color:red;" id="passwordCheckMessage"></h2>
+                   			<h5 style="color:red;" id="passwordCheckMessage"></h5>
                  
                               <label for="name">이름(실명)</label>
                               <input type="text" class="form-control" id="userName" name="userName" maxLength="20" placeholder="최대10자">
