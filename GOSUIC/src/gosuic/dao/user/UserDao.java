@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -54,16 +55,6 @@ public class UserDao {
 				new Object[] {user.getUserEmail(),user.getUserID(),user.getPassword1(),user.getUserName(),user.getUserBirthday(),user.getUserGender()});
 		return (n>0) ? true : false;
 	}
-
-	/*public boolean idcheck(String userEmail) {
-		System.out.println("아이디체크 Dao userEmail : "+ userEmail);
-		String str =getJdbcTemplate().queryForObject("select useremail from userinfo where useremail=?", new Object[] {userEmail},String.class);
-		System.out.println(str);
-		if(str!=null && str !="") {
-			return false;
-		}else
-		return true;
-	}*/
 	
 	public boolean login(String userEmail, String password1) {
 		System.out.println("록인dao들어옴");
@@ -77,6 +68,21 @@ public class UserDao {
 		}else
 			return false;
 
+	}
+	
+	public int checkId(String userEmail) {
+		
+		try {
+		System.out.println("아이디 중복체크 다오 : " + userEmail );
+		String check = getJdbcTemplate().queryForObject("select userID from userinfo where useremail=?", new Object[] {userEmail},String.class);
+		System.out.println( "======== "+check);
+		
+		}catch(EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 1;
+		
 	}
 
 	}

@@ -10,7 +10,6 @@ import gosuic.dao.user.UserDao;
 import gosuic.entity.AptInfo;
 import gosuic.vo.UserVo;
 
-//biz는 dao를 호출한다.
 @Service
 public class UserService {
 	
@@ -25,12 +24,12 @@ public class UserService {
 		return userDao.insertUser(user);
 	}
 
-	/*public boolean idcheck(String userEmail) {
-		return userDao.idcheck(userEmail);
-	}*/
-
 	public boolean login(String userEmail, String password1) {
 		return userDao.login(userEmail, password1);
+	}
+
+	public int checkID(String userEmail) {
+		return userDao.checkId(userEmail);
 	}
 
 }

@@ -1,6 +1,7 @@
 package gosuic.controller.user;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.AlternativeJdkIdGenerator;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import gosuic.biz.user.UserService;
@@ -31,20 +33,6 @@ public class UserController {
 		return "/WEB-INF/view/submit-property.jsp";
 	}
 	
-	/*@RequestMapping(value="/IdCheck.sp", method=RequestMethod.POST)
-	public ModelAndView idcheck(String userEmail) {
-		System.out.println(userEmail + "중복 아이디 체크");
-		
-		ModelAndView mav = new ModelAndView();
-		if(userService.idcheck(userEmail)) {
-			System.out.println("중복아님");
-		}else {
-			System.out.println("중복임");
-		}
-		return mav;
-	}*/
-	
-	
 	@RequestMapping(value = "/UserLogin.sp", method = RequestMethod.POST)
     public ModelAndView login(HttpSession session,String userEmail, String password1){
 		System.out.println(userEmail + " 컨트롤러의 록인 컨트롤러 들옴");
@@ -59,6 +47,19 @@ public class UserController {
         }
         return mav;
     }    
+	
+	// 아이디 중복체크
+		@ResponseBody
+		@RequestMapping(value="/CheckId.sp",method =RequestMethod.POST)
+		public String checkId(HttpServletRequest request, Model model) {
+			String userEmail= request.getParameter("userEmail");
+			System.out.println("checkid cont" + userEmail);
+			int row = userService.checkID(userEmail);
+			System.out.println("컨트롤러" + row +":" + userEmail);
+			
+			return String.valueOf(row);
+			
+		}
 	
 
 

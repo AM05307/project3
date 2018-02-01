@@ -316,6 +316,30 @@
   <script src="assets/js/main.js"></script>
   
   <script type="text/javascript">
+  
+  $(document).ready(function(){
+	  $('#idcheck').on('click',function(){
+		  $.ajax({
+			  type:'POST',
+			  url:'/GOSUIC/CheckId.sp',
+			  data:{
+				  "userEmail":$('#userEmail').val()
+				  
+			  },
+				success:function(data){
+					if($.trim(data)==0){
+						alert("사용가능한 아이디입니다.");
+						//$('#checkMsg').html('사용가능한 아이디입니다.');
+					}else{
+						alert("중복된 아이디입니다.");
+						//$('#checkMsg').html('중복된 아이디입니다.');
+					}
+					}
+			  
+		  });
+	  });
+  });
+  
   function passwordCheckFunction(){
 	  var password1 = $('#password1').val();
 	  var password2 = $('#password2').val();
