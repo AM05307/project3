@@ -91,13 +91,13 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<div class="button navbar-right">
-					<!-- 로그인, 회원가입 버튼  -->
+					<!-- 로그아웃 버튼  -->
 					
 					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick=" location.href='/GOSUIC/loginform.sp'"
-						data-wow-delay="0.45s">로그인</button>
-					<button class="navbar-btn nav-button wow fadeInRight"
-						onclick=" location.href=''/GOSUIC/insert.sp'" data-wow-delay="0.48s">회원가입</button>
+						onclick=" window.open('/GOSUIC/loginform.sp')"
+						data-wow-delay="0.45s">로그아웃</button>
+					
+				
 				</div>
 
 				<!-- 메뉴바 -->
@@ -229,7 +229,7 @@
 				<div
 					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
 					<div class="search">
-						<br> 매물을 검색하세요. <br>
+						<br> 원하는 지역의 매물을 검색하세요 <br>
 						<hr>
 					</div>
 
@@ -237,7 +237,7 @@
 			
 						<!-- 검색버튼  -->
 						<button class="btn search1-btn" type="submit"
-							onclick=" window.open('/GOSUIC/findaddress.jsp')">
+							onclick=" window.open('/GOSUIC/findaddress.html')">
 							지역 선택하기<i class="fa fa-search"></i>
 						</button>
 
