@@ -3,9 +3,10 @@
 <% if(session.getAttribute("userEmail") == null) {%>
 	<script languge ="javascript">
 		alert("로그인이 필요합니다.");
+		history.back();
 	</script>
 	
-	<jsp:forward page="index.jsp"></jsp:forward>
+	<!--<jsp:forward page="index.jsp"></jsp:forward>-->
 <% }%>
 <% System.out.print(session.getAttribute("userEmail")); %>
 <!DOCTYPE html>

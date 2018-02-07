@@ -49,6 +49,8 @@ public class UserController {
         return mav;
     }    
 	
+	
+	
 	// 아이디 중복체크
 		@ResponseBody
 		@RequestMapping(value="/CheckId.sp",method =RequestMethod.POST)
@@ -62,6 +64,14 @@ public class UserController {
 			
 		}
 	
+		// 로그아웃
+		@RequestMapping("/UserLogout.sp")
+	    public String logout(HttpSession session){
+			//System.out.println(session.getAttribute("userEmail"));
+			System.out.println("로그아웃");
+			session.invalidate();
+			return "/WEB-INF/view/index.jsp";
+		}
 
 
 }
